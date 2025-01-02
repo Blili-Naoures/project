@@ -1,0 +1,13 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Nouvelle Recette" />
+    <ScrollView>
+        <StackLayout class="p-4">
+            <TextField hint="Nom de la recette" text="{{ name }}" class="mb-2" />
+            <TextView hint="Description" text="{{ description }}" class="mb-2" />
+            <TextField hint="Catégorie" text="{{ category }}" class="mb-2" />
+            <TextView hint="Ingrédients (un par ligne)" text="{{ ingredientsText }}" class="mb-2" />
+            <TextView hint="Instructions" text="{{ instructions }}" class="mb-2" />
+            <Button text="Sauvegarder" tap="{{ onSave }}" class="-primary" />
+        </StackLayout>
+    </ScrollView>
+</Page>

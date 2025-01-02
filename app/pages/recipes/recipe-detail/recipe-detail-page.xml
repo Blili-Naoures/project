@@ -1,0 +1,24 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="{{ name }}" />
+    <ScrollView>
+        <StackLayout class="p-4">
+            <Label text="{{ name }}" class="text-2xl font-bold mb-2" />
+            <Label text="{{ category }}" class="text-lg text-gray-600 mb-2" />
+            <Label text="{{ description }}" class="mb-4" textWrap="true" />
+            
+            <Label text="Ingrédients" class="text-xl font-bold mb-2" />
+            <ListView items="{{ ingredients }}" class="mb-4">
+                <ListView.itemTemplate>
+                    <Label text="{{ $value }}" class="p-2" textWrap="true" />
+                </ListView.itemTemplate>
+            </ListView>
+            
+            <Label text="Instructions" class="text-xl font-bold mb-2" />
+            <Label text="{{ instructions }}" textWrap="true" />
+            
+            <Button text="{{ isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris' }}" 
+                    tap="{{ toggleFavorite }}" 
+                    class="-primary mt-4" />
+        </StackLayout>
+    </ScrollView>
+</Page>

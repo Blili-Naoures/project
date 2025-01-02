@@ -1,0 +1,36 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Mes Recettes">
+        <ActionItem tap="{{ onAddRecipe }}" ios.position="right" android.position="actionBar">
+            <Label text="+" class="text-2xl" />
+        </ActionItem>
+    </ActionBar>
+
+    <GridLayout rows="auto, *">
+        <StackLayout row="0" class="p-2">
+            <SearchBar hint="Rechercher une recette..." text="{{ searchQuery }}" />
+            <ScrollView orientation="horizontal" class="p-2">
+                <StackLayout orientation="horizontal">
+                    <Button text="Tous" tap="{{ filterByCategory }}" class="m-1" />
+                    <Button text="Favoris" tap="{{ showFavorites }}" class="m-1" />
+                    <Button text="Entrées" tap="{{ filterByCategory }}" class="m-1" />
+                    <Button text="Plats" tap="{{ filterByCategory }}" class="m-1" />
+                    <Button text="Desserts" tap="{{ filterByCategory }}" class="m-1" />
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+
+        <ListView row="1" items="{{ recipes }}" itemTap="{{ onRecipeTap }}" class="list-group">
+            <ListView.itemTemplate>
+                <GridLayout columns="auto, *" class="p-2 border-b border-gray-200">
+                    <Image col="0" src="{{ imageUrl || 'res://placeholder' }}" 
+                           width="60" height="60" class="rounded-lg" />
+                    <StackLayout col="1" class="ml-2">
+                        <Label text="{{ name }}" class="text-lg font-bold" />
+                        <Label text="{{ category }}" class="text-sm text-gray-600" />
+                        <Label text="{{ isFavorite ? '⭐' : '' }}" class="text-sm" />
+                    </StackLayout>
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </GridLayout>
+</Page>
